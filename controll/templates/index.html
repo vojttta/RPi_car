@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rpi Mechlab</title>
+</head>
+<body>
+    <center><h1>Raspberry Pi4 Mechlab</h1></center>
+    <p>Current Value is: <span id="valueSpan">{{ value }}</span></p>
+    
+    <script>
+        // Funkce pro zachycení stisknuté klávesy
+        document.addEventListener('keydown', function(event) {
+            var keyValue = event.key;
+            
+            // Odešli klávesu na server
+            fetch('/handle_key', {
+                method: 'POST',
+                body: JSON.stringify({ key: keyValue }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    console.log('Klávesa byla úspěšně odeslána na server.');
+                } else {
+                    console.error('Chyba při odesílání klávesy na server.');
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>
