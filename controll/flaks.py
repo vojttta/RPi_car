@@ -18,13 +18,13 @@ def handle_key():
     # Například zvýšení nebo snížení hodnoty podle klávesy
     print(key)
     if key == 'ArrowDown':
-        print('UF')
+        print('DA')
     elif key == 'ArrowUp':
-        print('DF')
+        print('UA')
     if key == 'ArrowLeft':
-        print('LF')
+        print('LA')
     elif key == 'ArrowRight':
-        print('RF')
+        print('RA')
     
     return jsonify({'message': 'OK'})
 
